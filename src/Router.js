@@ -10,12 +10,18 @@ import { SignIn } from './pages/SignIn/SignIn';
 import { Store } from './pages/Store/Store';
 import { Category } from './pages/Category/Category';
 import { NotFound } from './pages/NotFound/NotFound';
+import { Nav } from './components/Nav/Nav';
+import { SecondNav } from './components/Nav/SecondNav';
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/*" element={<Nav />} />
+        <Route path="/card_collections/new" element={<SecondNav />} />
         <Route path="/users/login" element={<SignIn />} />
+      </Routes>
+      <Routes>
         <Route path="/" element={<Community />} />
         <Route path="/follow" element={<Follow />} />
         <Route path="/card_collections" element={<CardCollections />} />
@@ -23,7 +29,7 @@ function Router() {
         <Route path="/projects" element={<Projects />} />
 
         <Route path="/store" element={<Store />} />
-        <Route path="/store/category" element={<Category />} />
+        <Route path="/category" element={<Category />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
