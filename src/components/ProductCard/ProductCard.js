@@ -70,6 +70,7 @@ const ImgWrapper = styled.div`
     max-height: 220px;
     border-radius: 5px;
     transition: all 0.15s ease-in-out;
+    object-fit: cover;
     &:hover {
       transform: scale(1.15);
     }
