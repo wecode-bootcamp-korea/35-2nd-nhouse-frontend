@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-164656912612393299.png/512/none",
+    "title": "쇼핑하기"
+  },
+  {
+    "id": 2,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-164656918534331578.png/512/none",
+    "title": "빠른배송"
+  },
+  {
+    "id": 3,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-164656922749115313.png/512/none",
+    "title": "N평집들이"
+  },
+  {
+    "id": 4,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-164656930595208594.png/512/none",
+    "title": "공간별사진"
+  },
+  {
+    "id": 5,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-165475804975967307.png/512/none",
+    "title": "리모델링"
+  },
+  {
+    "id": 6,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-164758529751094973.png/512/none",
+    "title": "쉬운이사"
+  },
+  {
+    "id": 7,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-164656963446270570.png/512/none",
+    "title": "오늘의딜"
+  },
+  {
+    "id": 8,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-165931711006991430.png/512/none",
+    "title": "0원이벤트"
+  },
+  {
+    "id": 9,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-165927976078572281.png/512/none",
+    "title": "5일초특가"
+  },
+  {
+    "id": 10,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-165931714381965836.png/512/none",
+    "title": "요즘트렌드"
+  }
+]
