@@ -15,7 +15,7 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/users/login" element={<SignIn />} />
         <Route path="/" element={<Community />} />
         <Route path="/follow" element={<Follow />} />
         <Route path="/card_collections" element={<CardCollections />} />
