@@ -11,7 +11,7 @@ import { Store } from './pages/Store/Store';
 import { Category } from './pages/Category/Category';
 import { Nav } from './components/Nav/Nav';
 import { SecondNav } from './components/Nav/SecondNav';
-// import { ProductList } from './pages/Category/ProductList';
+import { ProductList } from './pages/Category/ProductList';
 
 function Router() {
   return (
@@ -30,7 +30,7 @@ function Router() {
 
         <Route path="/store" element={<Store />} />
         <Route path="/category" element={<Category />}>
-          {/* <Route path="" element={<ProductList />} /> */}
+          <Route path="" element={<ProductList />} />
         </Route>
       </Routes>
     </BrowserRouter>
