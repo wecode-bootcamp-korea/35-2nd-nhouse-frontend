@@ -5,7 +5,9 @@ import styled from 'styled-components';
 export const SignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const AUTH_CODE = location.search.split('=')[1];
+  const params = new URLSearchParams(location.search);
+  const AUTH_CODE = params.get('code');
+
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_REST_API_KEY}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&response_type=code`;
 
   const [values, setValues] = useState({
@@ -30,7 +32,6 @@ export const SignIn = () => {
 
   useEffect(() => {
     if (AUTH_CODE) {
-      console.log(AUTH_CODE);
       fetch('http://10.58.6.101:3000/users/login', {
         method: 'GET',
         headers: {
@@ -39,7 +40,6 @@ export const SignIn = () => {
       })
         .then(response => response.json())
         .then(result => {
-          console.log(result);
           if (result.access_token) {
             localStorage.setItem('token', result.access_token);
             alert('WELCOME');
@@ -126,14 +126,14 @@ const Login = styled.form`
 `;
 
 const Input = styled.input`
-  background-color: #fafafa;
   box-sizing: border-box;
-  border: 1px solid #dbdbdb;
-  border-radius: 4px;
-  font-size: 11px;
   height: 36px;
   margin: 0 40px 6px;
   padding: 9px 8px 7px;
+  font-size: 11px;
+  background-color: #fafafa;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
 `;
 
 const LoginButton = styled.button`
