@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { Recommend } from './Component/Recommend';
 
 export function Follow() {
-  const loginstatus = false;
-  const followuser = false;
+  const loginstatus = true;
+  const followuser = true;
   return (
     <FollowWrap>
       {!loginstatus ? (
@@ -59,21 +59,68 @@ export function Follow() {
               유저를 팔로우하고 새 소식을 확인하세요!
             </FollowingDescriptionSubTitle>
           </FollowingDescription>
+          <RecommendUserList>
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+            <Recommend />
+          </RecommendUserList>
+          <FollowBtnWrap>
+            <FollowBtn>팔로잉 피드 시작해보기</FollowBtn>
+          </FollowBtnWrap>
         </NoFollowWrap>
       ) : (
-        <div>
+        <LoginFollowWrap>
           <LoginDescription>
-            <p>관심있는 해시태그를 팔로우해보세요</p>
-            <p>다양한 주제의 콘텐츠를 모아볼 수 있어요!</p>
+            <FollowingDescriptionTitle>
+              관심있는 해시태그를 팔로우해보세요
+            </FollowingDescriptionTitle>
+            <FollowingDescriptionSubTitle>
+              다양한 주제의 콘텐츠를 모아볼 수 있어요!
+            </FollowingDescriptionSubTitle>
           </LoginDescription>
-          <div>
-            <div>아이디</div>
-            <div>이미지</div>
-            <div>본문</div>
-            <div>태그</div>
-            <div>아이콘</div>
-          </div>
-        </div>
+          <UserFeed>
+            <UserId>아이디</UserId>
+            <UserImg>
+              <img
+                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/165958991107373939.jpeg?gif=1&w=640&webp=1"
+                alt=""
+              />
+            </UserImg>
+            <UserText>본문</UserText>
+            <UserTag>
+              <li>
+                <span>#태그</span>
+              </li>
+              <li>
+                <span>#태그</span>
+              </li>
+              <li>
+                <span>#태그</span>
+              </li>
+              <li>
+                <span>#태그</span>
+              </li>
+            </UserTag>
+            <FeedIcon>아이콘</FeedIcon>
+          </UserFeed>
+        </LoginFollowWrap>
       )}
     </FollowWrap>
   );
@@ -83,7 +130,7 @@ const FollowWrap = styled.div`
   position: relative;
   width: 100%;
   max-width: 780px;
-  margin: 0px auto;
+  margin: 160px auto 0;
 `;
 
 const NoFollowWrap = styled.div``;
@@ -172,5 +219,63 @@ const FollowBtn = styled.button`
   font-weight: 700;
   color: white;
 `;
+const LoginFollowWrap = styled.div`
+  max-width: 554px;
+  width: 100%;
+  margin: 0 auto;
+`;
 
-const LoginDescription = styled.div``;
+const LoginDescription = styled.div`
+  height: 160px;
+  margin: 30px 0;
+  border: 1px solid #eaedef;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const UserFeed = styled.div`
+  width: 100%;
+  border: 1px solid #eaedef;
+  border-radius: 5px;
+`;
+
+const UserId = styled.div`
+  padding: 15px 16px;
+`;
+
+const UserImg = styled.div``;
+
+const UserText = styled.div`
+  padding: 16px 16px 10px;
+`;
+
+const UserTag = styled.ul`
+  display: block;
+  position: relative;
+  padding: 0 36px 0 16px;
+  margin: 0 0 10px;
+  line-height: 0;
+  max-height: 72px;
+  overflow: hidden;
+
+  li {
+    display: inline-block;
+    position: relative;
+    padding: 8px 6px 0 0;
+
+    span {
+      display: inline-block;
+      position: relative;
+      padding: 5px 6px;
+      font-size: 12px;
+      line-height: 18px;
+      color: #2f3438;
+      background-color: #f7f8fa;
+      border-radius: 4px;
+    }
+  }
+`;
+
+const FeedIcon = styled.div``;
