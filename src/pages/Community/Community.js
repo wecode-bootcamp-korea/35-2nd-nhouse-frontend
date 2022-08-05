@@ -315,7 +315,7 @@ export function Community() {
 }
 
 const CommunityWrap = styled.div`
-  margin: 0 auto;
+  margin: 160px auto 0;
 
   @media (min-width: 1256px) {
     width: 1256px;
