@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AiFillStar } from 'react-icons/ai';
 import styled from 'styled-components';
 
-export const ProductCard = ({ timeSale, item }) => {
+export const ProductCard = ({ item, timeSale }) => {
   const { brand, product_id, main_image, price, title } = item;
   const [offRate, setOffRate] = useState();
   const [starScore, setStarScore] = useState();
