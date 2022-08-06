@@ -11,6 +11,7 @@ import { Store } from './pages/Store/Store';
 import { Category } from './pages/Category/Category';
 import { Nav } from './components/Nav/Nav';
 import { SecondNav } from './components/Nav/SecondNav';
+import { Detail } from './pages/Detail/Detail';
 import { ProductList } from './pages/Category/ProductList';
 
 function Router() {
@@ -29,6 +30,7 @@ function Router() {
         <Route path="/projects" element={<Projects />} />
 
         <Route path="/store" element={<Store />} />
+        <Route path="/store/:id" element={<Detail />} />
         <Route path="/category" element={<Category />}>
           <Route path="" element={<ProductList />} />
         </Route>

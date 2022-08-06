@@ -1,0 +1,26 @@
+{
+  "result": {
+    "additional_products": ["디자인쿠션", "기절 마약 매트리스 토퍼"],
+    "brand": "헬로우슬립",
+    "first_category": "이불",
+    "price": "68800.000",
+    "product_options": [
+      {
+        "color_option": "red",
+        "size_option": "SS"
+      },
+      {
+        "color_option": "green",
+        "size_option": "Q"
+      }
+    ],
+    "second_category": "침구세트",
+    "sizes": ["SS", "Q"],
+    "thumbnail_image": [
+      "https://images.unsplash.com/photo-1530530772323-b47b294e4222?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8JTA4YmVkZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1530530772323-b47b294e4222?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8JTA4YmVkZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1530530772323-b47b294e4222?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8JTA4YmVkZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
+    ],
+    "title": "코지베어 말랑말랑 먼지없는 차렵이불세트"
+  }
+}
