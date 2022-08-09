@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-category-store_hamburger_categories-165630523915931405.png/1280/none",
+    "category": "가구"
+  },
+  {
+    "id": 2,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-category-store_hamburger_categories-165580419018522462.png/1280/none",
+    "category": "패브릭"
+  },
+  {
+    "id": 3,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-category-store_hamburger_categories-165580419962025006.png/1280/none",
+    "category": "가전"
+  },
+  {
+    "id": 4,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-category-store_hamburger_categories-165580409819652579.png/1280/none",
+    "category": "유아·아동"
+  },
+  {
+    "id": 5,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-category-store_hamburger_categories-165580419546547100.png/1280/none",
+    "category": "조명"
+  },
+  {
+    "id": 6,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-category-store_hamburger_categories-165580420382620877.png/1280/none",
+    "category": "주방용품"
+  },
+  {
+    "id": 7,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-category-store_hamburger_categories-162835982382781033.png/1280/none",
+    "category": "데코·식물"
+  },
+  {
+    "id": 8,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-category-store_hamburger_categories-165580420728645403.png/1280/none",
+    "category": "수납·정리"
+  },
+  {
+    "id": 9,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-category-store_hamburger_categories-163609846171803764.png/1280/none",
+    "category": "생활용품"
+  },
+  {
+    "id": 10,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-category-store_hamburger_categories-165579984972500884.png/1280/none",
+    "category": "생필품"
+  },
+  {
+    "id": 11,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-category-store_hamburger_categories-162835985103343415.png/1280/none",
+    "category": "공구·DIY"
+  },
+  {
+    "id": 12,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-category-store_hamburger_categories-162835985751246256.png/1280/none",
+    "category": "인테리어시공"
+  },
+  {
+    "id": 13,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-category-store_hamburger_categories-162835986432363224.png/1280/none",
+    "category": "반려동물"
+  },
+  {
+    "id": 14,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-category-store_hamburger_categories-165588441030460209.png/1280/none",
+    "category": "캠피용품"
+  },
+  {
+    "id": 15,
+    "img": "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-category-store_hamburger_categories-162835987414167522.png/1280/none",
+    "category": "실내운동"
+  }
+]
