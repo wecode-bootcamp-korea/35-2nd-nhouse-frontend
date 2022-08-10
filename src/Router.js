@@ -13,6 +13,7 @@ import { Nav } from './components/Nav/Nav';
 import { SecondNav } from './components/Nav/SecondNav';
 import { Detail } from './pages/Detail/Detail';
 import { ProductList } from './pages/Category/ProductList';
+import { ReadCard } from './pages/ReadCard/ReadCard';
 
 function Router() {
   return (
@@ -26,6 +27,7 @@ function Router() {
         <Route path="/" element={<Community />} />
         <Route path="/follow" element={<Follow />} />
         <Route path="/card_collections" element={<CardCollections />} />
+        <Route path="/card_collections/:id" element={<ReadCard />} />
         <Route path="/card_collections/new" element={<NewFeed />} />
         <Route path="/projects" element={<Projects />} />
 

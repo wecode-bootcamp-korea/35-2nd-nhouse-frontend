@@ -1,0 +1,60 @@
+[
+  {
+    "user": {
+      "id": 2,
+      "profile_image": "https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80",
+      "nickname": "코코"
+    },
+    "post": {
+      "id": 1,
+      "contents": [
+        {
+          "photo_id": 1,
+          "description": "새로 꾸민 거실",
+          "url": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
+          "tags": [
+            {
+              "point_x": 23.4,
+              "point_y": 4.56,
+              "product": {
+                "id": 3,
+                "title": "이케아 원목 의자"
+              }
+            },
+            {
+              "point_x": 4.34,
+              "point_y": 65.6,
+              "product": {
+                "id": 40,
+                "title": "이케아 테이블"
+              }
+            }
+          ]
+        },
+        {
+          "photo_id": 2,
+          "description": "새로 꾸민 부엌",
+          "url": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
+          "tags": [
+            {
+              "point_x": 5.34,
+              "point_y": 9.56,
+              "product": {
+                "id": 23,
+                "title": "이케아 식탁"
+              }
+            },
+            {
+              "point_x": 4.34,
+              "point_y": 6.56,
+              "product": {
+                "id": 20,
+                "title": "이케아 의자"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+]
