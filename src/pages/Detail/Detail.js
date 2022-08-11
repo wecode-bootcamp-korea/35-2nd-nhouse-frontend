@@ -55,7 +55,7 @@ export function Detail() {
                 {Math.ceil(
                   info?.price / parseFloat(1 - offRate / 100)
                 ).toLocaleString()}
-                할인전
+                원
               </RegularPrice>
             </div>
             <Price>{parseInt(info?.price).toLocaleString()}원</Price>

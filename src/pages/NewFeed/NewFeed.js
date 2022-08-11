@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, Fragment } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { NewFeedModal } from './NewFeedModal';
 import { AiFillCamera } from 'react-icons/ai';
@@ -10,8 +11,8 @@ import {
   IoMdArrowDropup,
   IoMdArrowDropdown,
 } from 'react-icons/io';
-
 export function NewFeed() {
+  const navigate = useNavigate();
   const [imageInfo, setImageInfo] = useState({
     file: null,
     previewURL: '',
@@ -23,9 +24,7 @@ export function NewFeed() {
     work_type: '',
     contents_description: '',
   });
-
   const [currModal, setCurrModal] = useState('');
-
   const [modalSelectedId, setModalSelectedId] = useState();
   const [onClickCoordinate, setOnClickCoordinate] = useState({
     coordinateX: '',
@@ -38,17 +37,13 @@ export function NewFeed() {
     point_y: '',
   });
   const [tagsList, setTagsList] = useState([]);
-
   const photoInput = useRef();
   const photoOverlay = useRef();
-
   //  *** 이미지 관리 function들 ***
-
   const imageUpload = e => {
     e.preventDefault();
     photoInput.current.click();
   };
-
   const imageDelete = e => {
     e.preventDefault();
     setImageInfo({
@@ -56,7 +51,6 @@ export function NewFeed() {
       previewURL: '',
     });
   };
-
   const imageOverlay = e => {
     setOnClickCoordinate(prev => ({
       ...prev,
@@ -67,7 +61,6 @@ export function NewFeed() {
         100,
     }));
   };
-
   useEffect(() => {
     if (
       onClickCoordinate.coordinateX !== '' &&
@@ -82,9 +75,7 @@ export function NewFeed() {
       });
     }
   }, [onClickCoordinate]);
-
   // 이미지 태그 관련 Hook
-
   useEffect(() => {
     if (modalSelectedId !== undefined) {
       setTag({
@@ -95,7 +86,6 @@ export function NewFeed() {
     }
     getCurrModal('');
   }, [modalSelectedId]);
-
   useEffect(() => {
     if (tag.product_id !== '') {
       const prevTagsList = [...tagsList];
@@ -108,7 +98,6 @@ export function NewFeed() {
       });
     }
   }, [tag]);
-
   const imageInput = e => {
     if (!!imageInfo) setCoordinatesList([]);
     setImageInfo({
@@ -116,9 +105,7 @@ export function NewFeed() {
       previewURL: URL.createObjectURL(e.target.files[0]),
     });
   };
-
   // *** 전송 데이터 관련 function들 ***
-
   const handleSelect = e => {
     const { name, value } = e.target;
     setData(prev => ({
@@ -126,10 +113,8 @@ export function NewFeed() {
       [name]: value,
     }));
   };
-
   const onSubmit = async e => {
     e.preventDefault();
-
     let jsonData = {
       living_type: data.living_type,
       room_size: data.room_size,
@@ -138,12 +123,9 @@ export function NewFeed() {
       contents_description: data.contents_description,
       tag: tagsList,
     };
-
     let formData = new FormData();
-
     formData.append('filename', imageInfo.file);
     formData.append('data', JSON.stringify(jsonData));
-
     await axios({
       method: 'POST',
       url: 'http://10.58.0.216:3000/posts/posting',
@@ -154,16 +136,14 @@ export function NewFeed() {
       },
       data: formData,
     });
+    navigate('/card_collections');
   };
-
   const getModalSelectedId = id => {
     setModalSelectedId(id);
   };
-
   const getCurrModal = value => {
     setCurrModal(value);
   };
-
   return (
     <Wrapper>
       <div />
@@ -185,7 +165,6 @@ export function NewFeed() {
               );
             })}
           </OnTopSelector>
-
           <OnTopSelector
             name="family_type"
             value={data.family_type}
@@ -300,7 +279,6 @@ export function NewFeed() {
               style={{ display: 'none' }}
             />
           </ImageUploadContainer>
-
           <TextUploadContainer>
             <PlaceSelectorWrapper>
               <PlaceSelector
@@ -334,7 +312,6 @@ export function NewFeed() {
     </Wrapper>
   );
 }
-
 const Wrapper = styled.main`
   width: 100vw;
   height: 100vh;
@@ -342,7 +319,6 @@ const Wrapper = styled.main`
   justify-content: center;
   align-items: center;
 `;
-
 const NewFeedContainer = styled.form`
   width: 100%;
   max-width: 1003px;
@@ -351,7 +327,6 @@ const NewFeedContainer = styled.form`
   justify-content: center;
   flex-direction: column;
 `;
-
 const UploadContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -361,7 +336,6 @@ const UploadContainer = styled.div`
   padding: 0 0 40px;
   gap: 24px;
 `;
-
 const RoomOptionContainer = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -369,7 +343,6 @@ const RoomOptionContainer = styled.div`
   gap: 10px;
   margin: 0 5px 50px;
 `;
-
 const OnTopSelector = styled.select`
   appearance: none;
   width: 150px;
@@ -380,14 +353,12 @@ const OnTopSelector = styled.select`
   border-radius: 5px;
   transition: background-color 0.1s ease 0s;
 `;
-
 const ImageUploadContainer = styled.div`
   position: relative;
   width: 100%;
   max-width: 460px;
   height: fit-content;
 `;
-
 const ImageStandBy = styled.button`
   display: flex;
   justify-content: center;
@@ -401,29 +372,23 @@ const ImageStandBy = styled.button`
   border: 1px dashed #dbdbdb;
   border-radius: 5px;
   transition: opacity 0.1s ease 0s;
-
   svg {
     font-size: 57px;
   }
-
   p:first-child {
     font-size: 15px;
   }
-
   p:last-child {
     font-size: 12px;
   }
-
   &:hover {
     opacity: 0.7;
     cursor: pointer;
   }
-
   &:active {
     border: 1px dashed #dbdbdb;
   }
 `;
-
 const OvelayControler = styled.div`
   position: absolute;
   display: flex;
@@ -436,18 +401,15 @@ const OvelayControler = styled.div`
   gap: 25px;
   color: #ffffff;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.54));
-
   button {
     all: unset;
     font-size: 24px;
     transition: opacity 0.1s ease 0s;
-
     &:hover {
       opacity: 0.7;
     }
   }
 `;
-
 const InsertTagButton = styled.button`
   position: absolute;
   bottom: 16px;
@@ -460,24 +422,20 @@ const InsertTagButton = styled.button`
   transition: background-color 0.1s ease 0s;
   border: none;
   border-radius: 32px;
-
   &:hover {
     background-color: #09addb;
   }
 `;
-
 const TagButton = styled.button`
   all: unset;
   position: absolute;
   display: inline-block;
   cursor: pointer;
 `;
-
 const TagSvg = styled.svg`
   width: 24px;
   height: 24px;
 `;
-
 const TextUploadContainer = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -488,12 +446,10 @@ const TextUploadContainer = styled.div`
   min-height: 276px;
   gap: 10px;
 `;
-
 const PlaceSelectorWrapper = styled.div`
   position: relative;
   color: #bdbdbd;
 `;
-
 const PlaceSelector = styled.select`
   appearance: none;
   width: 100%;
@@ -503,19 +459,16 @@ const PlaceSelector = styled.select`
   border: 1px solid #dbdbdb;
   border-radius: 5px;
   transition: background-color 0.1s ease 0s;
-
   &:hover {
     background-color: #fafafa;
   }
 `;
-
 const ArrowDownIcon = styled(RiArrowDownSFill)`
   position: absolute;
   top: 10px;
   right: 10px;
   font-size: 20px;
 `;
-
 const TextStandBy = styled.textarea`
   width: 100%;
   height: fit-content;
@@ -527,23 +480,19 @@ const TextStandBy = styled.textarea`
   border: 1px solid #dbdbdb;
   border-radius: 5px;
   transition: background-color 0.1s ease 0s;
-
   &:hover {
     background-color: #fafafa;
   }
-
   &:focus {
     outline: 2px solid #c2edfa;
     background-color: #ffffff;
   }
-
   &::placeholder {
     font-weight: bold;
     font-size: 13px;
     color: #bdbdbd;
   }
 `;
-
 const UploadButton = styled.button`
   width: 100%;
   height: 70px;
@@ -555,13 +504,11 @@ const UploadButton = styled.button`
   border: none;
   border-radius: 5px;
   transition: opacity 0.1s ease 0s;
-
   &:hover {
     opacity: 0.7;
     cursor: pointer;
   }
 `;
-
 const SIZE_PRESET = [
   { id: 1, value: 'underTen', name: '10평 이하' },
   { id: 2, value: 'fromTen', name: '10평' },
@@ -570,19 +517,16 @@ const SIZE_PRESET = [
   { id: 5, value: 'fromFourty', name: '40평' },
   { id: 6, value: 'overFifty', name: '50평 이상' },
 ];
-
 const FAMILY_PRESET = [
   { id: 1, value: 'single', name: '싱글라이프' },
   { id: 2, value: 'couple', name: '부부' },
   { id: 3, value: 'roommate', name: '룸메이트' },
 ];
-
 const WORKSPACE_PRESET = [
   { id: 1, value: 'homeStyling', name: '홈스타일링' },
   { id: 2, value: 'remodeling', name: '리모델링' },
   { id: 4, value: 'construction', name: '건설' },
 ];
-
 const PLACE_PRESET = [
   { id: 1, value: 'oneRoom', name: '원룸' },
   { id: 2, value: 'livingRoom', name: '거실' },

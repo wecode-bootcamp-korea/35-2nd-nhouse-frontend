@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Recommend } from './Component/Recommend';
 import { Feed } from './Component/Feed';
 
+import API from '../../config';
+
 export function Follow() {
   const [followingFeed, setFollowingFeed] = useState([]);
   const token = localStorage.getItem('token');
@@ -14,7 +16,7 @@ export function Follow() {
   //const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozNX0.YQfRhXORRRxngur6OYuhXVgy5Kqvb2M7ypGV96bHuL4';
 
   useEffect(() => {
-    fetch(`http://10.58.1.43:3000/posts/follow`, {
+    fetch(API.follow, {
       headers: {
         Authorization: token,
       },
