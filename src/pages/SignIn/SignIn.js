@@ -1,20 +1,17 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-
+import API from '../../config';
 export const SignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const AUTH_CODE = params.get('code');
-
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_REST_API_KEY}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&response_type=code`;
-
   const [values, setValues] = useState({
     userId: '',
     userPw: '',
   });
-
   const handleInput = e => {
     const { name, value } = e.target;
     setValues(prevValues => ({
@@ -22,17 +19,14 @@ export const SignIn = () => {
       [name]: value,
     }));
   };
-
   const isInputValid = values.userId.includes('@') && values.userPw.length >= 5;
-
   const goToMain = e => {
     e.preventDefault();
     return navigate('/');
   };
-
   useEffect(() => {
     if (AUTH_CODE) {
-      fetch(`${process.env.REACT_APP_SERVER_IP}/users/login`, {
+      fetch(`${API.BASE_URL}/users/login`, {
         method: 'GET',
         headers: {
           Authorization: AUTH_CODE,
@@ -51,7 +45,6 @@ export const SignIn = () => {
         });
     }
   }, []);
-
   return (
     <SignInContainer>
       <RightTop>
@@ -84,7 +77,6 @@ export const SignIn = () => {
     </SignInContainer>
   );
 };
-
 const SignInContainer = styled.section`
   display: flex;
   justify-content: center;
@@ -95,7 +87,6 @@ const SignInContainer = styled.section`
   background-color: #fafafa;
   color: #8e8e8e;
 `;
-
 const RightTop = styled.section`
   width: 100%;
   max-width: 350px;
@@ -105,24 +96,20 @@ const RightTop = styled.section`
   background-color: #ffffff;
   border: 1px solid #dbdbdb;
 `;
-
 const Logo = styled.div`
   display: flex;
   justify-content: center;
   margin: 36px 0 0;
-
   img {
     width: 150px;
     height: 50px;
   }
 `;
-
 const Login = styled.form`
   display: flex;
   flex-direction: column;
   margin: 36px 0 10px;
 `;
-
 const Input = styled.input`
   box-sizing: border-box;
   height: 36px;
@@ -133,7 +120,6 @@ const Input = styled.input`
   border: 1px solid #dbdbdb;
   border-radius: 4px;
 `;
-
 const LoginButton = styled.button`
   height: 30px;
   margin: 8px 40px;
@@ -146,7 +132,6 @@ const LoginButton = styled.button`
   border-radius: 4px;
   cursor: default;
 `;
-
 const SignUp = styled.div`
   display: flex;
   justify-content: center;
@@ -160,12 +145,10 @@ const SignUp = styled.div`
   background-color: #ffffff;
   border: 1px solid #dbdbdb;
 `;
-
 const LoginKakao = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-
   img {
     width: 150px;
   }

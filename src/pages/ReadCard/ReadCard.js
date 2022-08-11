@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import API from '../../config';
 import { BsHeart, BsBookmark, BsChat, BsShare } from 'react-icons/bs';
-
 export function ReadCard() {
   const [feed, setFeed] = useState({});
   const [isHovering, setIsHovering] = useState(0);
   const params = useParams();
   const navigate = useNavigate();
-
   useEffect(() => {
     fetch(`http://3.38.183.31:8000/posts/${params.id}`)
       .then(res => res.json())
@@ -16,7 +15,22 @@ export function ReadCard() {
         setFeed(data.results);
       });
   }, [params.id]);
-
+  const follow = id => {
+    console.log(id);
+    fetch(`${API.BASE_URL}/users/follow`, {
+      method: 'POST',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+      body: JSON.stringify({
+        following_user_id: id,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
+  };
   return (
     <ReadCardWrap>
       {feed.post &&
@@ -72,7 +86,13 @@ export function ReadCard() {
               />
               <UserName>{feed.user.nickname || 'user'}</UserName>
             </UserBtn>
-            <FollowBtn>팔로우</FollowBtn>
+            <FollowBtn
+              onClick={() => {
+                follow(feed.user.id);
+              }}
+            >
+              팔로우
+            </FollowBtn>
           </>
         )}
       </UserWrap>
@@ -97,28 +117,24 @@ export function ReadCard() {
     </ReadCardWrap>
   );
 }
-
 const ReadCardWrap = styled.div`
   position: relative;
   margin-top: 160px;
 `;
-
 const Feed = styled.div`
   position: relative;
   width: calc(100% - 120px);
   max-width: 100%;
   margin: 0 auto;
-
   @media (min-width: 768px) {
     width: 720px;
   }
 `;
-
 const ImgWrap = styled.div`
   position: relative;
 `;
-
 const ProductModal = styled.div`
+  box-sizing: border-box;
   position: absolute;
   display: flex;
   ${({ x }) => {
@@ -127,23 +143,26 @@ const ProductModal = styled.div`
   ${({ y }) => {
     return `top: ${y + 4}%;`;
   }}
-  transform: translateX(-50%);
-  width: 200px;
-  height: 50px;
-  border: 1px solid black;
-  background-color: white;
+  justify-content: space-around;
   align-items: center;
+  width: 280px;
+  height: 100px;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+  background-color: white;
+  opacity: 0.8;
 `;
-
 const ProductImg = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
 `;
-
-const ProductTitle = styled.p``;
-
+const ProductTitle = styled.p`
+  width: 180px;
+  font-weight: bold;
+  font-size: 14px;
+`;
 const MainImg = styled.img``;
-
 const ImgTag = styled.svg`
   position: absolute;
   ${({ x }) => {
@@ -157,7 +176,6 @@ const ImgTag = styled.svg`
   height: 24px;
   border-radius: 100%;
   background-color: rgba(53, 197, 240, 0.8);
-
   path {
     stroke: rgb(255, 255, 255);
     stroke-linecap: square;
@@ -165,7 +183,6 @@ const ImgTag = styled.svg`
     d: path('M 12 16 V 8 m -4 4 h 8');
   }
 `;
-
 const MainText = styled.p`
   margin: 40px 0 24px;
   font-size: 16px;
@@ -173,7 +190,6 @@ const MainText = styled.p`
   color: #2f3438;
   letter-spacing: -0.4px;
 `;
-
 const UserWrap = styled.div`
   position: relative;
   display: flex;
@@ -184,12 +200,10 @@ const UserWrap = styled.div`
   align-items: center;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
-
   @media (min-width: 768px) {
     width: 720px;
   }
 `;
-
 const UserBtn = styled.button`
   display: flex;
   margin: 20px 5px;
@@ -198,17 +212,14 @@ const UserBtn = styled.button`
   background-color: white;
   cursor: pointer;
 `;
-
 const UserImg = styled.img`
   width: 50px;
   height: 50px;
 `;
-
 const UserName = styled.span`
   margin-left: 5px;
   font-size: 18px;
 `;
-
 const FollowBtn = styled.button`
   width: auto;
   height: 40px;
@@ -224,7 +235,6 @@ const FollowBtn = styled.button`
   background-color: rgb(53, 197, 240);
   cursor: pointer;
 `;
-
 const Side = styled.div`
   position: absolute;
   top: 0;
@@ -234,18 +244,15 @@ const Side = styled.div`
   height: 100%;
   padding: 0px 40px;
 `;
-
 const StickyDiv = styled.div`
   position: sticky;
   top: 182px;
 `;
-
 const IconWrap = styled.div`
   position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
-
   button {
     display: flex;
     align-items: center;
