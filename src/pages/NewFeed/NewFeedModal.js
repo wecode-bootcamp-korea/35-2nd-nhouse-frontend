@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import API from '../../config';
+
 export const NewFeedModal = ({
   className,
   children,
@@ -12,9 +14,7 @@ export const NewFeedModal = ({
   const [searchedValue, setSearchedValue] = useState([]);
 
   async function request() {
-    const res = await fetch(
-      `http://10.58.1.43:3000/search/products?keyword=${searchValue}`
-    );
+    const res = await fetch(`${API.search}${searchValue}`);
     const result = await res.json();
     setSearchedValue(result.result);
   }
