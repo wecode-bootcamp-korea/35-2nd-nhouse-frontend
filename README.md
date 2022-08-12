@@ -1,5 +1,7 @@
 # NHouse
 
+> 데모 http://13.127.1.227:8000/
+
 > [팀 프로젝트 프론트엔드 GitHub](https://github.com/wecode-bootcamp-korea/35-1st-9roomdroom9-frontend)<br/> > [팀 프로젝트 백엔드 GitHub](https://github.com/wecode-bootcamp-korea/35-2nd-nhouse-backend)
 
 ### 타이틀
