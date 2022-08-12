@@ -36,6 +36,30 @@ Back-end : 조예슬님, 김민지님
 - 카카오 로그인
 - 커뮤니티 글쓰기
 
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        커뮤니티 홈
+      </th>
+      <th>
+        커뮤니티 사진
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">
+<img width="1416" alt="커뮤니티" src="https://user-images.githubusercontent.com/62737638/184285709-74376b3a-88fe-4768-b02e-8668b8b6a426.png">
+      </td>
+      <td align="center">
+        <img width="1427" alt="피드" src="https://user-images.githubusercontent.com/62737638/184285760-5d6f4c71-4657-49d7-bd7e-99ce5fc0367f.png">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 [김광희님](https://velog.io/@fortheher/%EB%B0%B0%EB%AF%BC%EB%AC%B8%EB%B0%A9%EA%B5%AC-%ED%81%B4%EB%A1%A0-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-REACT)
 
 - 커뮤니티 홈
@@ -47,10 +71,10 @@ Back-end : 조예슬님, 김민지님
   <thead>
     <tr>
       <th>
-        GitHub
+        커뮤니티 홈
       </th>
       <th>
-        Notion
+        커뮤니티 사진
       </th>
     </tr>
   </thead>
@@ -74,6 +98,30 @@ Back-end : 조예슬님, 김민지님
 - 스토어 홈
 - 스토어 카테고리
 - 제품 상세페이지
+
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        커뮤니티 홈
+      </th>
+      <th>
+        커뮤니티 사진
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">
+<img width="1379" alt="스토어 카테고리" src="https://user-images.githubusercontent.com/62737638/184286021-e26ed23f-918c-4a3f-a1ef-df962f31210f.png">
+      </td>
+      <td align="center">
+      <img width="1352" alt="디테일" src="https://user-images.githubusercontent.com/62737638/184286048-882cca53-c7e0-4f04-b2e6-ab4700c69b2c.png">
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 #
 
