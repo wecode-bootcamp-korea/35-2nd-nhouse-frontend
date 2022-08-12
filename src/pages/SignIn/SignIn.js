@@ -34,6 +34,7 @@ export const SignIn = () => {
       })
         .then(response => response.json())
         .then(result => {
+          console.log(result);
           if (result.access_token) {
             localStorage.setItem('token', result.access_token);
             alert('WELCOME');
