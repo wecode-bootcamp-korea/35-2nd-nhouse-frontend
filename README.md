@@ -41,7 +41,31 @@ Back-end : 조예슬님, 김민지님
 - 커뮤니티 홈
 - 커뮤니티 팔로우
 - 커뮤니티 사진
-<img width="1416" alt="커뮤니티" src="https://user-images.githubusercontent.com/62737638/184285602-61f40ddd-c705-4acc-ae46-4ee27fa4f26a.png">
+
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        GitHub
+      </th>
+      <th>
+        Notion
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">
+<img width="1416" alt="커뮤니티" src="https://user-images.githubusercontent.com/62737638/184285709-74376b3a-88fe-4768-b02e-8668b8b6a426.png">
+      </td>
+      <td align="center">
+        <img width="1427" alt="피드" src="https://user-images.githubusercontent.com/62737638/184285760-5d6f4c71-4657-49d7-bd7e-99ce5fc0367f.png">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 [정훈조님](https://velog.io/@fortheher/%EB%B0%B0%EB%AF%BC%EB%AC%B8%EB%B0%A9%EA%B5%AC-%ED%81%B4%EB%A1%A0-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-REACT)
