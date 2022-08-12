@@ -5,5 +5,6 @@ const API = {
   subCategory: `${BASE_URL}/products?second_category=`,
   follow: `${BASE_URL}/posts/follow`,
   search: `${BASE_URL}/search/products?keyword=`,
+  login: `${BASE_URL}/users/login`,
 };
 export default API;

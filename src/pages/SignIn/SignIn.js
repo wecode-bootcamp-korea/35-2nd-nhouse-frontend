@@ -25,26 +25,34 @@ export const SignIn = () => {
     return navigate('/');
   };
   useEffect(() => {
-    if (AUTH_CODE) {
-      fetch(`${API.BASE_URL}/users/login`, {
-        method: 'GET',
-        headers: {
-          Authorization: AUTH_CODE,
-        },
-      })
-        .then(response => response.json())
-        .then(result => {
-          console.log(result);
-          if (result.access_token) {
-            localStorage.setItem('token', result.access_token);
-            alert('WELCOME');
-            navigate('/');
-          } else {
-            alert('NONONO');
-            navigate('/users/login');
-          }
-        });
-    }
+    fetch(`https://kauth.kakao.com/oauth/token`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `grant_type=authorization_code&client_id=${process.env.REACT_APP_REST_API_KEY}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&code=${AUTH_CODE}`,
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.access_token) {
+          console.log(data.access_token);
+          fetch(`${API.login}`, {
+            method: 'GET',
+            headers: {
+              Authorization: data.access_token,
+            },
+          })
+            .then(response => response.json())
+            .then(result => {
+              if (result.access_token) {
+                localStorage.setItem('token', result.access_token);
+                alert('WELCOME');
+                navigate('/');
+              } else {
+                alert('NONONO');
+                navigate('/users/login');
+              }
+            });
+        }
+      });
   }, []);
   return (
     <SignInContainer>

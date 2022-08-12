@@ -3,11 +3,25 @@ import styled from 'styled-components';
 import { ProductCard } from '../../components/ProductCard/ProductCard';
 import { Loadmore } from './Loadmore';
 import { BsArrowUpCircle } from 'react-icons/bs';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import API from '../../config';
 
+const settings2 = {
+  dots: false,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 10,
+  slidesToScroll: 5,
+  autoplay: false,
+};
+
 export function Store() {
   const [data, setData] = useState();
+  const [communityNavigation, setCommunityNavigation] = useState([]);
+  const [categoryCarousel, setCategoryCarousel] = useState([]);
   const element = useRef();
   const getData = async () => {
     const response = await fetch(API.productList);
@@ -21,6 +35,16 @@ export function Store() {
 
   useEffect(() => {
     getData();
+    fetch('/data/CommunityNav.json')
+      .then(res => res.json())
+      .then(data => {
+        setCommunityNavigation(data);
+      });
+    fetch('/data/CategoryCarousel.json')
+      .then(res => res.json())
+      .then(data => {
+        setCategoryCarousel(data);
+      });
   }, []);
 
   return (
@@ -31,10 +55,10 @@ export function Store() {
       <Big />
       <Nav>
         <ImgUl>
-          {ICON_DATA.map((icon, index) => (
-            <ImgLi key={icon.title}>
-              <img alt="" src={icon.img} />
-              <ImgP>{icon.title}</ImgP>
+          {communityNavigation.map((item, index) => (
+            <ImgLi key={item.id}>
+              <img alt="" src={item.img} />
+              <ImgP>{item.title}</ImgP>
             </ImgLi>
           ))}
         </ImgUl>
@@ -54,16 +78,19 @@ export function Store() {
           </ProductsUl>
         </TodayProducts>
       </TodayDeal>
-      <Nav>
-        <ImgUl>
-          {CATEGORY_DATA.map(icon => (
-            <ImgLi key={icon.title}>
-              <img alt="icon" src={icon.img} />
-              <ImgP>{icon.title}</ImgP>
-            </ImgLi>
-          ))}
-        </ImgUl>
-      </Nav>
+      <HomeCategory>
+        <Subtitle>카테고리별 상품 찾기</Subtitle>
+        <CategorySlider {...settings2}>
+          {categoryCarousel.map(carousel => {
+            return (
+              <HomeCategoryWrap key={carousel.id}>
+                <HomeCategoryIMG src={carousel.img} alt="HomeCategoryIMG" />
+                <HomeCategoryTitle>{carousel.category}</HomeCategoryTitle>
+              </HomeCategoryWrap>
+            );
+          })}
+        </CategorySlider>
+      </HomeCategory>
       <TodayDeal>
         <TodayHeader>
           <Title>인기 상품</Title>
@@ -176,28 +203,62 @@ const MoveBtn = styled.div`
   }
 `;
 
-const ICON_DATA = [
-  { title: '5일초특가', img: '/images/store/1.webp' },
-  { title: '트렌드발견', img: '/images/store/2.webp' },
-  { title: '빠른배송', img: '/images/store/3.webp' },
-  { title: '살림백과', img: '/images/store/4.webp' },
-  { title: '프리미엄', img: '/images/store/5.webp' },
-  { title: '오! 굿즈', img: '/images/store/6.webp' },
-  { title: '반려동물', img: '/images/store/7.webp' },
-  { title: '원플원샵', img: '/images/store/8.webp' },
-  { title: '신상특가', img: '/images/store/9.webp' },
-  { title: 'LG쇼룸', img: '/images/store/10.webp' },
-];
+const CategorySlider = styled(Slider)`
+  width: 100%;
+  height: 100%;
 
-const CATEGORY_DATA = [
-  { title: '5일초특가', img: '/images/store/2-1.webp' },
-  { title: '트렌드발견', img: '/images/store/2-2.webp' },
-  { title: '빠른배송', img: '/images/store/2-3.webp' },
-  { title: '살림백과', img: '/images/store/2-4.webp' },
-  { title: '프리미엄', img: '/images/store/2-5.webp' },
-  { title: '오! 굿즈', img: '/images/store/2-6.webp' },
-  { title: '반려동물', img: '/images/store/2-7.webp' },
-  { title: '원플원샵', img: '/images/store/2-8.webp' },
-  { title: '신상특가', img: '/images/store/2-9.webp' },
-  { title: 'LG쇼룸', img: '/images/store/2-10.webp' },
-];
+  .slick-prev {
+    top: 55px;
+    left: -10px;
+    border: 0px;
+    border-radius: 100%;
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .slick-prev:before {
+    font-size: 40px;
+    color: #000000;
+    opacity: 1;
+  }
+
+  .slick-next {
+    top: 55px;
+    right: 10px;
+    border: 0px;
+    border-radius: 100%;
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .slick-next:before {
+    font-size: 40px;
+    color: #000000;
+    opacity: 1;
+  }
+`;
+
+const HomeCategoryWrap = styled.div`
+  cursor: pointer;
+`;
+const HomeCategoryIMG = styled.img``;
+
+const HomeCategoryTitle = styled.p`
+  margin-top: 20px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #424242;
+`;
+
+const HomeCategory = styled.div`
+  width: calc(100% - 120px);
+  max-width: 1256px;
+  margin: 50px auto;
+`;
+
+const Subtitle = styled.h2`
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 700;
+`;
