@@ -33,7 +33,7 @@ Back-end : 조예슬님, 김민지님
 
 #
 
-[오창훈님](https://velog.io/@fortheher/%EB%B0%B0%EB%AF%BC%EB%AC%B8%EB%B0%A9%EA%B5%AC-%ED%81%B4%EB%A1%A0-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-REACT)
+[오창훈님](https://velog.io)
 
 - 카카오 로그인
 - 커뮤니티 글쓰기
@@ -62,7 +62,7 @@ Back-end : 조예슬님, 김민지님
   </tbody>
 </table>
 
-[김광희님](https://velog.io/@fortheher/%EB%B0%B0%EB%AF%BC%EB%AC%B8%EB%B0%A9%EA%B5%AC-%ED%81%B4%EB%A1%A0-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-REACT)
+[김광희님](https://velog.io)
 
 - 커뮤니티 홈
 - 커뮤니티 팔로우
@@ -94,7 +94,7 @@ Back-end : 조예슬님, 김민지님
 
 
 
-[정훈조님](https://velog.io/@fortheher/%EB%B0%B0%EB%AF%BC%EB%AC%B8%EB%B0%A9%EA%B5%AC-%ED%81%B4%EB%A1%A0-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-REACT)
+[정훈조님](https://velog.io
 
 - Nav
 - 스토어 홈
