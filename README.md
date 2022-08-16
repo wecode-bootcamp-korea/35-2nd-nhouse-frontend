@@ -53,10 +53,10 @@ Back-end : 조예슬님, 김민지님
   <tbody>
     <tr>
       <td align="center">
-<img width="1416" alt="커뮤니티" src="https://user-images.githubusercontent.com/62737638/184285709-74376b3a-88fe-4768-b02e-8668b8b6a426.png">
+        <img width="1416" alt="커뮤니티" src="https://user-images.githubusercontent.com/105952597/184850438-07b3918f-36bb-4606-ad63-4a53e0d61a17.png">
       </td>
       <td align="center">
-        <img width="1427" alt="피드" src="https://user-images.githubusercontent.com/62737638/184285760-5d6f4c71-4657-49d7-bd7e-99ce5fc0367f.png">
+        <img width="1427" alt="피드" src="https://user-images.githubusercontent.com/105952597/184850584-bbf1520e-7530-415d-a2b4-0153cf71272c.png">
       </td>
     </tr>
   </tbody>
